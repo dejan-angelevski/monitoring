@@ -1,0 +1,21 @@
+logging:
+  level:
+    org:
+      springframework: INFO
+      root: INFO
+    com.finki.monitoring.application.usecase: ERROR
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - prometheus
+        - health
+  endpoint:
+    health:
+      show-details: always
+server:
+  port: 8080
+spring:
+  application:
+    name: monitoring
