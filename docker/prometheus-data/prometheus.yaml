@@ -1,0 +1,11 @@
+scrape_configs:
+- job_name: 'Spring Boot Application input'
+  #   http://localhost:8080/actuator/prometheus   <- this endpoint will give the row data needed.
+  #  8080 is the microservice deployed port
+  metrics_path: '/actuator/prometheus'
+  scrape_interval: 2s
+  static_configs:
+  #      ip : port of the microservice
+  - targets: [ 'host.docker.internal:8080' ]
+    labels:
+      application: "My Spring Boot Application"
